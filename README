@@ -2,3 +2,7 @@ The MiniCMS is very simple cms writen by PHP & Mysql for generating static HTML 
 Dependency: PHP 5.3, MySQL 5.0, blitz http://alexeyrybak.com/blitz/blitz_ru.html is template engine, Twitter bootstrap and JQuery for uploadin images.
 
 The structure of the database in the file db.sql.
+
+Start cms: wwwRoot/index.php
+Show HTML content: wwwRoot/articles/index.html
+ 
