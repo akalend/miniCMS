@@ -6,3 +6,4 @@ The structure of the database in the file db.sql.
 Start cms: wwwRoot/index.php
 Show HTML content: wwwRoot/articles/index.html
  
+TODO: uploading generated pages by ftp
