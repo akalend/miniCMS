@@ -2,31 +2,44 @@
 <html>
 
 <header>
-<title>Высокие нагрузки в WEB Введение и пару слов об этом сервере</title>
+<title>Highload. Высокие нагрузки в WEB. Введение и пару слов об этом сервере</title>
 <meta name="generator" content="minicms" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-language" content="ru" />
 <meta name="author" content="Kalendarev Alexandre">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="авторский блог Александра Календарева Высокие нагрузки в WEB">
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<meta name="description" content="авторский блог Александра Календарева: Высокие нагрузки в WEB">
+<meta http-equiv="last-Modified" content="Wed, 25 Jul 2012 00:21:16 +0400"> 
+<link href="/assets/css/bootstrap.css" rel="stylesheet">
 <style>
   body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
   }
+ 
 </style>
-<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 <!-- Le fav and touch icons -->
-  <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico">
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-<script src="js/jquery.min.js" type="text/javascript"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+    
+  <link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
+  <!-- link rel="shortcut icon" type="image/ico" href="images/favicon.gif" /-->	  
+
+  <script src="/js/jquery.min.js" type="text/javascript"></script>
+  <!--script src="/assets/js/jquery.js"></script-->
+	
+	<script src="/js/jquery-ui-1.8.18.custom.min.js"></script>
+    <script src="/js/jquery.smooth-scroll.min.js"></script>
+	<script src="/js/lightbox.js"></script>
+
 </header>
 <body>
 
@@ -46,6 +59,20 @@
               <!-- li class="active"><a href="#">личное</a></li-->
               <li><a href="/articles/4.html">Об Авторе</a></li>
               <li><a href="/articles/5.html">Сотрудничество</a></li>
+
+              <li><li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">материал по темам <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/articles/scaling.html">Масштабирование</a></li>
+                      <li><a href="/articles/highload.html">HightLoad</a></li>
+                      <!-- li><a href="#">MySQL</a></li -->                     
+                      <li><a href="/articles/nosql.html">NoSQL</a></li>
+                      <!-- li><a href="#">PHP</a></li -->
+                      <li><a href="/articles/web.html">WEB</a></li>
+                      <li><a href="/articles/tarantool.html">Tarantool</a></li>
+                    </ul>
+              </li>
+                   
             </ul>
           </div><!--/.nav-collapse -->
           
@@ -55,42 +82,131 @@
     </div>
 <div class="container">
 <div class="page-header"><h1>Введение и пару слов об этом сервере</h1></div>
-<p><div><em><div class="pull-left"><img align="left" src="/img/articles/4.jpg">
-Открывая свой блог, первой статьей хочу рассказать о сервере, на котором он расположен. Все начилось с того, что я услышал о возможности перепрошить свой роутер и установить на него Linux.  Уточнив модель, у меня Asus  WL-500W, я загорелся этой идеей, так как давно собралось много материала, который разбросан как-то по сети. Захотелось его центролизовать в едином блоге. 
+<p><div><em><div class="pull-left"><img 1>
+Открывая свой блог, первой статьей хочу рассказать о сервере, на котором он расположен. Это не совсем про "Высокие нагрузки", но идею "генерации HTML статики" можно удачно использовать в высоконагруженных контентных проектах.
+<p> Все начилось с того, что я услышал о возможности перепрошить свой роутер и установить на него Linux.  Уточнив модель, у меня Asus  WL-500W, я загорелся этой идеей, так как давно собралось много материала, который разбросан как-то по сети. Захотелось его центролизовать в едином блоге. 
 <p>Возможно, со временем мой блог наберет аудиторию и сервер переедет на отдельный хостинг. Но на данный момент меня вполне устраивает "Домашний хостинг".
 </div>
 </em></div>
 <h3>О прошивке</h3>
 <p style="padding-top:20px;"> Статью про прошивку  можно найти <a target="blank" href="http://www.dd-wrt.com/wiki/index.php/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0_WL-500W_%D0%BD%D0%B0_DD-WRT_%D0%B2_%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0%D1%85!_:%29">здесь</a></p>
-<p>В новую прошивку  DD-WRT входит тольк ядро ОС и  WEB сервер административной консоли. Для организации блога это оказалось не достаточным. Следующим шагом пришлось установить <a href="http://ru.wikipedia.org/wiki/Lighttpd">ligthttpd</a></p>
-<p>Установка lighttpd осуществляется из портов, по этому первоночально необходимо установить порты. Об этом довольно подробно расписано <a  target="blank" href="http://www.dd-wrt.com/wiki/index.php/Router_Dir-320_DD-WRT_%2B_WWW_%2B_PHP_%2B_MySQL_%2B_PERL">здесь</a></p> 
-<p>Но из-за ограничения ресурсов, 32М Оперативной памяти, установку пришлось немного сократить.  По этому ставим только один lighttpd. Соответственно все настройки используются только для ligthttpd без PHP</p>
+<p>В новую прошивку  DD-WRT входит тольк ядро ОС и  WEB сервер административной консоли. Для организации блога это оказалось не достаточным. Следующим шагом устанавливаем WEB сервер</p> 
+<h3>WEB сервер</h3>
+<p>Как установить  lighttpd+PHP+MySQL можно почитать <a  target="blank" href="http://www.dd-wrt.com/wiki/index.php/Router_Dir-320_DD-WRT_%2B_WWW_%2B_PHP_%2B_MySQL_%2B_PERL" target="blank">здесь</a> Делаем все, как написано в статье.
+<p>Я приверженец <a href="http://nginx.org/ru/" target="blank"  >nginx</a> по этому, учитывая ограничения ресурсов роутера, 32М Оперативной памяти - я установил только один nginx.
+<pre>
+#/opt/bin/ipkg-opt list | grep nginx // смотрим доступные пакеты
+nginx - 1.0.14-1 - A high perfomance http and reverse proxy server, and IMAP/POP3 proxy server.
+#/opt/bin/ipkg-opt install nginx      // устанавливаем nginx
+</pre>
+<p>
+
+Далее идем на вкладку Техобслуживание-Команды и вписываем:
+<pre>
+[Startup]
+gpio disable 4
+sleep 5
+mount -o noatime /dev/scsi/host0/bus0/target0/lun0/part1 /jffs
+mount -o noatime /dev/scsi/host0/bus0/target0/lun0/part2 /mnt
+/opt/bin/busybox swapon /dev/scsi/host0/bus0/target0/lun0/part3
+mount -o bind /jffs/opt /opt
+/opt/etc/init.d/S80nginx start
+sleep 5
+gpio enable 5
+gpio enable 4
+
+[Shutdown]
+gpio disable 3
+sleep 5
+/opt/etc/init.d/S80nginx stop
+umount /opt
+umount /mnt
+umount /jffs
+sleep 5
+gpio disable 5
+gpio enable 3
+</pre>
+<p>   Устанавливаем WEB home :  /jffs/usr/www
+<br> и прописываем конфиг<pre>
+# vi /opt/etc/nginx/nginx.conf
+user  nobody nobody;
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        off;              # выключаем загрузку файлов
+    keepalive_timeout  65;
+    gzip  on;                        # включаем сжатие
+
+    server {
+        listen  80;
+        server_name  hiloadblog hiloadblog.ru;
+
+        charset utf-8;
+
+        location / {
+            root  /jffs/usr/www;
+            index  index.html index.htm;
+        }
+
+        error_page  404              /index.html;        # заворачиваем все 404 ошибки на index.html
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+    }
+}
+</pre>
+
 <h3>О ЦМС</h3>
-<p>Что касается блога, то он использует на <a href="#">minicms</a>, написанной за пару дней. По этому не судите о ней строго. Особенность этой ЦМС в том, что она генерит статический контент, который впоследствии заливается на роутер по ftp. 
+<p>Что касается блога, то он построен на <a target="blank" href="https://github.com/akalend/miniCMS">miniCMS</a>, написанной за пару дней. По этому не судите о ней строго. Особенность этой ЦМС в том, что она генерит статический контент, который впоследствии заливается на роутер по ftp. 
 <p><span class="label label-warning">Зависимости</span> PHP 5.3, MySQL, <a href="http://alexeyrybak.com/blitz/blitz_ru.html" target="blank">blitz</a>
 <p>Почему спросите блиц? Просто я его использую в своих других проектах и по этому уже привык к нему. Как всякий <s>лентяй</s>здравомыслящий программист,  я взял часть кода из моих других проектов. Вы можете переписать часть кода и использовать любой из понравившихся Вам шаблонизаторов. 
 <p>Блог построен по принципу: лента с краткими выдержками и развернутые статьи. Содержание, которое отображается только в ленте (анонс) от самой статьи отделяется тегом <code>cut</code>, кто размещал свои статьи на <a  target="blank" href="habrahabr.ru">habrahabr</a>, то  это аналог тега <code>habracut</code>.
-<p>Картинки загружаются по ajax и каждой из них присваевается номер. В том месте, где она должна загрузится, необходимо указать тег<code><img #id ></code>
-</p>
+<p>Картинки загружаются по ajax и каждой из них присваевается номер. В том месте, где она должна загрузится, необходимо указать тег<code>img #id </code>
+<p style="margin-top:30px;">
+<em>Copyright (c)2012 byAlexandre Kalendarev.<br> This material may be distributed only subject to the terms and conditions set forth in the Open Publication License, v1.0 or later<br> (the latest version is presently available at <a target="blank" href="http://opencontent.org/openpub/">http://www.opencontent.org/openpub/</a>).</em></p>
+<p>
 
+
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t25.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";h"+escape(document.title.substring(0,80))+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число посетителей за"+
+" сегодня' "+
+"border='0' width='88' height='15'><\/a>")
+//--></script><!--/LiveInternet-->
 </div>
 </body>
  <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
+    <!-- script src="/assets/js/jquery.js"></script -->
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
 
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
 
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
-
-
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+    
+    
 </html>

@@ -127,8 +127,6 @@ class DbModel {
 			$this->sqlCache[] = $toSave = array( 'sql' =>$sql , 'time'=>$time );
 			
 			//var_dump($toSave);
-			$log = Log::getInstance();
-			$log->toLog($toSave, log::DEBUG);
 			
 			//$this->rows = $this->db->affected_rows();
 			if (!is_object($res)) return true;

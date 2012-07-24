@@ -10,6 +10,5 @@ $db = new DbModel();
     
     $db->query($sql,$_POST);    
     
-    Header('Location', '/index.php');
+    Header('Location: /index.php');
     
- 

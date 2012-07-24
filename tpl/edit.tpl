@@ -39,16 +39,33 @@ function gotoHome() {
 }
 
 	$(document).ready(function(){
-		/* Example 1 */
-		var button = $('#button1'), interval;
 		
+		var button = $('#button1'), interval;
+                
+                var saveOrg = $('#saveOriginal');
+
+                var checked='0';                        
+                if (saveOrg.attr('checked') == 'checked')
+                    checked='1';
+
+                saveOrg.click(function(e) {        
+                    checked='0';
+                    if (saveOrg.attr('checked') == 'checked')
+                    checked='1';
+                });    
+        var title = $('#imgTitle');     
+                
+	    
 		new AjaxUpload(button, {
-			action: 'upload.php?id={{id}}', 
+                        url : 'upload.php?id={{id}}&orig=',
 			name: 'myfile',
 			onSubmit : function(file, ext){
 				// change button text, when user selects file			
-				button.text('Uploading');
-								
+			button.text('Uploading');
+			titleStr = title.val();
+            
+            this._settings['action'] = this._settings['url'] + checked + '&title=' + encodeURI(titleStr);
+
 				// If you want to allow uploading only 1 file at time,
 				// you can disable upload button
 				this.disable();
@@ -94,9 +111,11 @@ function gotoHome() {
 <input type="hidden" name="id" value="{{id}}"/>
 <input type="checkbox" name="publication" {{checked}}/>
 <input type="submit" value="Сохранить" /> <span style="width:20px"> </span>
-<input type="button" value="список" onclick="gotoHome()"/>
-<span style="width:20px"> </span>
+<input type="button" value="список" onclick="gotoHome()"/><span style="width:20px"> </span> 
 <input type="submit" value="Сгенерить" name="generate"/>
+<div>tags:<input  style="width: 240px; margin-left: 10px; margin-top: 10px; " type="text" name="tags"value="{{tags}}" lenght="40"></div>
+     <input type="hidden" name="oldtags"value="{{tags}}" >  
+<span style="width:20px"> </span>
 {{END}}
 
 {{BEGIN image}}
@@ -108,8 +127,10 @@ function gotoHome() {
 <li id="example1" class="example">
 
     <div class="wrapper">
-			<div class="button" id="button1">Upload</div>
-		</div>
+	<div class="button" id="button1">Upload</div>
+        <input type="checkbox" id="saveOriginal" checked /> сохр Оригинал<br/>
+        <input type="text" id="imgTitle" >
+    </div>
 		<p>Uploaded files:</p>
 		<p class="files"></p>
 		

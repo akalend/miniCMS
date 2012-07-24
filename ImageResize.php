@@ -714,7 +714,7 @@ class ImageResize {
             		imagepng($newImg, $this->getImage());
             		break;
             	default:
-            	    throw new Exception("Tipo de imagem informado não é compatível.");
+            	    throw new Exception("Unknow image type");
             		break;
             }
         }

@@ -7,8 +7,8 @@
 
 <body>
     
-    
-    <input type="button" value="Создать новый" ><span style="width: 20px;"/>
+    <a href="insert.php"><input type="button" value="Создать новый" ></a>  
+    <span style="width: 20px;"/>
     <a href="index.php?mode=lenta"><input type="button" value="Сгенерить ленту"/></a><span style="width: 20px;"/>
      <a href="articles/"><input type="button" value="Посмотреть" ></a><br>
 {{BEGIN article}}
