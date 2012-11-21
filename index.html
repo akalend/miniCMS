@@ -2,16 +2,18 @@
 <html>
 <header>
 <title>Highload. Высокие нагрузки в WEB, персональный блог Александра Календарёва </title>
-<meta name="generator" content="minicms" >
+<meta name="generator" content="miniCms" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-language" content="ru" />
 <meta name="author" content="Kalendarev Alexandre">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" lang="ru" content="авторский блог Александра Календарева Высокие нагрузки в WEB">
-<meta http-equiv="last-Modified" content="Wed, 25 Jul 2012 01:25:44 +0400"> 
+<meta name="keywords" lang="ru" content="highload, высокие нарузки,">
+<meta http-equiv="last-Modified" content="Wed, 21 Nov 2012 22:31:12 +0300"> 
 
 
-<link href="/assets/css/bootstrap.css" rel="stylesheet"
+<link href="/assets/css/bootstrap.css" rel="stylesheet"/>
+<link rel="author" href="/humans.txt" />
 <style>
   body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -34,7 +36,7 @@
 </header>
 <body>
 <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner" style="background-color: #999" >
+    <div class="navbar-inner" style="background-color: #999;  " >
 
          <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -42,25 +44,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Высокие нагрузки в  WEB</a>
+          <a title="Высокие нарузки в WEB" class="brand" href="/"><span class="brand" style="color:fe5a5a; font-family: 'Charcoal CY'; font-size: 18 pt; font-style: bold;">HighloadBlog</span></a>
           <div class="nav-collapse">
 
             <ul class="nav">
-              <!-- li class="active"><a href="#">личное</a></li-->
-              <li><a href="/articles/4.html">Об Авторе</a></li>
-              <li><a href="/articles/5.html">Сотрудничество</a></li>
               <li><li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">материал по темам <b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><b>Материал по темам </b><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><a href="/articles/scaling.html">Масштабирование</a></li>
-                      <li><a href="/articles/highload.html">HightLoad</a></li>
+                      <li><a href="/articles/highload.html">HighLoad</a></li>
                       <!-- li><a href="#">MySQL</a></li -->                     
                       <li><a href="/articles/nosql.html">NoSQL</a></li>
-                      <!-- li><a href="#">PHP</a></li -->
+                      <!li><a href="/articles/php.html">PHP</a></li>
                       <li><a href="/articles/web.html">WEB</a></li>
                       <li><a href="/articles/tarantool.html">Tarantool</a></li>
+                      <li><a href="/articles/development.html">Программирование и разработка</a></li>
                     </ul>
               </li>
+			  <li><a href="/articles/15.html"><b>Интересные ссылки</b></a></li>
+              <!-- li class="active"><a href="#">личное</a></li-->
+              <li><a href="/articles/4.html"><b>Об Авторе</b></a></li>
+              <li><a href="/articles/5.html"><b>Сотрудничество</b></a></li>
               
             </ul>
           </div><!--/.nav-collapse -->
@@ -76,62 +80,126 @@
 
 
 
-<div > <h2>Введение и пару слов об этом сервере</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-07-25</span></div>
+
+
+<div class="row">
+<div class="span6">
+<div> <h2>Создание собственных key/value хранилищ данных. Кеширование</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-11-21</span></div>
 <div>
 <p>
- <div><div class="pull-left"><img align="left" height="100"  src="/img/articles/1.jpg"><br>Открывая свой блог, первой статьей хочу рассказать о сервере, на котором он расположен. Это не совсем про "Высокие нагрузки", но идею "генерации HTML статики" можно удачно использовать в высоконагруженных контентных проектах.<br><p> Все начилось с того, что я услышал о возможности перепрошить свой роутер и установить на него Linux.  Уточнив модель, у меня Asus  WL-500W, я загорелся этой идеей, так как давно собралось много материала, который разбросан как-то по сети. Захотелось его центролизовать в едином блоге. <br><p>Возможно, со временем мой блог наберет аудиторию и сервер переедет на отдельный хостинг. Но на данный момент меня вполне устраивает "Домашний хостинг".<br></div><br><br><a href="/articles/1.html">Далее...</a></div>
-
-
-
-<div > <h2>Как выдержать миллионы запросов </h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-06-28</span></div>
+ <div><div style="text-align:right; font: Arial;" >Данный материал был напечатан в журнале "Системный Администратор"</div ><br><p>В случае, если хочется некоторую функциоанальности, который по тем или иным причинам нет в существующих key/value хранилищах, то приходится изобретать велосипед. Как его изобрести и обкатать, не ободрав штаны, какие гайки подкручивыать, а что можно взять из уже имеющегося…Все это попытаюсь рассмотреть в данном цикле статей, посвященнных созданию собственных key/value хранилищ данных.<br><p><a href="/articles/17.html">В первой части</a> рассмотривались способы размещения и извлечения данных по ключу, была предложена для изучения библиотека Tokyo Cabinet.<br><br><p><a class="btn" href="/articles/18.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/nosql.html">NoSQL</a></li><li class="active"><a href="/articles/caching.html">кеширование</a></li><li class="active"><a href="/articles/development.html">программирование и разработка</a></li>
+	</ul>
+ </div>
+ </div>
+<div class="span6">
+<div> <h2>Создание собственных key/value хранилищ. Хранение</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-11-19</span></div>
 <div>
 <p>
- <div><div style="text-align:right; font: Arial;" >Данный материал был напечатан в журнале "Системный Администратор"</div ><div><br><p><br>Прогресс не стоит на месте, все шире и шире осуществляется охват новых пользователей рунета. К всемирной паутине подсоединяются новые поселки и деревни. Каналы увеличивают пропускную способность, Растут нагрузки и в какой-то момент интернет проект начинает «тормозить», а то и «падать». Как избежать этого? Как выдержать наплыв 100 пользователей одновременно? А тысяча? А возможно ли выдержать миллион?</div><br><p>Если мы начинаем задавать себе такие вопросы, то невольно приходим к выводу, что нужна другая архитектура, спасобная выдержать соответствующие нагрузки.<br><br><a href="/articles/2.html">Далее...</a></div>
+ <div><div><div style="text-align:right; font: Arial;" >Данный материал был напечатан в журнале "Системный Администратор"</div ><br><img src="/img/articles/20.jpg" align="left"><br>Для Высоко-нагруженных проектов иногда хочется некоторого  функциоала, который по тем или иным причинам отсутствует в существующих key/value хранилищах. Как вариан – можно пропатчить имеющиеся решения. Но иногда, проще сделать что-то свое, если требуется, что-то не сложное, но узкоспециализированное. Даже если вы не соберётесь реализовать собственное NoSQL хранилище, некоторые моменты, отраженные в статье, будут полезны, как программистам, так и начинающим системным архитекторам.</div><br><br><p><a class="btn" href="/articles/17.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/nosql.html">NoSQL</a></li><li class="active"><a href="/articles/development.html">программирование и разработка</a></li>
+	</ul>
+ </div>
+ </div>
+ <hr>
+ </div>
 
 
 
-<div > <h2>Использование Tarantool в WEB проектах</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-07-04</span></div>
+<div class="row">
+<div class="span6">
+<div> <h2>библиотека libev или как  создать не блокируемое соединение</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-10-17</span></div>
 <div>
 <p>
- <div><img src="/img/articles/tarantool.jpg"><div style="text-align:right; font: Arial; margin-bottom:20px;" >Данный материал был напечатан в журнале "Системный Администратор"</div ><br><p>Tarantool – это высокопроизводительное хранилище key/value типа, разработанное компанией Mail@Ru специально для проектов с высокими нагрузками. Код написан на языке С, первая строчка которого была реализована в 1998 г. Начиная с конца 2010 г. проект находится в OpenSourse разработке. В настоящий момент Tarantool активно развивается, добавляются новые возможности. C июня 2011 года реализован РНР интерфейс, что способствует внедрению в WEB-проектах.<br><br><a href="/articles/3.html">Далее...</a></div>
-
-
-
-
-
-
-
-<div > <h2>Опыт использования распределенных систем в системе хостинга сотни электронных магазинов</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-06-28</span></div>
+ <div><p>Библиотека libev реализована в стиле функционального программирования и предназначена для упрощения асинхронного неблокирующего ввода/вывода. Создана Марком Лехманн (Marc Lehmann).<br><br><p><a class="btn" href="/articles/16.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/development.html">программирование и разработка</a></li>
+	</ul>
+ </div>
+ </div>
+<div class="span6">
+<div> <h2>Три кита HighLoad. Распараллеливание задач.</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-10-01</span></div>
 <div>
 <p>
- <div><div style="text-align:right; font: Arial;" >Данный материал был напечатан в журнале "Системный Администратор"</div ><div><br><p>Проект «мультишоп» представляет собой платформу хостинга сотни электроных магазинов, продающих десятки миллионов товаров. Общая нагрузка на все сервера расчитана более  чем 10 млн товаров и в общей сложности сможет обслужить более миллиона посетителей в сутки.  И это не предел, благодаря вертикальному масштабированию.<br><br><a href="/articles/6.html">Далее...</a></div>
+ <div><p>Продолжение первой и второй частей цикла "Три кита Highload"<br><br><p><a class="btn" href="/articles/14.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/highload.html">большие нагрузки</a></li><li class="active"><a href="/articles/scaling.html">масштабирование</a></li><li class="active"><a href="/articles/web.html">WEB</a></li><li class="active"><a href="/articles/sharding.html">шардинг</a></li>
+	</ul>
+ </div>
+ </div>
+ <hr>
+ </div>
 
 
 
-<div > <h2>WEB игры на NoSQL поле</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-07-24</span></div>
+<div class="row">
+<div class="span6">
+<div> <h2>Три кита HighLoad. (продолжение)</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-09-28</span></div>
 <div>
 <p>
- <div><div style="text-align:right; font: Arial;" >Данный материал был напечатан в журнале "Системный Администратор"</div ><br><p>Привлекательность браузерных on-line игр зависит не только от  замысла, стратегии и дизайна, но зачастую определяется архитектурой серверных решений. Сегодня технические в требованиях к многопользовательским социальным играм не только надежность, но и оперативность отклика. Традиционные РСУБД не справляются с возникшей нагрузкой от тысячи on-line пользователей. Приходится искать не традиционные методы.<br><a href="/articles/7.html">Далее...</a></div>
-
-
-
-<div > <h2>Социальная игра изнутри</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-07-24</span></div>
+ <div><h2>Предварительные и отложенные вычисления</h2><br><em><br><p>Начало  лекции по вычислительным алгоритмам. Входит профессор. <br><br><span style="font-family: monospace; font-style: normal;">Профессор</span>. Здраствуйте. Спасибо за внимание, Лекция окончена, все свободны<br><br><span style="font-family: monospace; font-style: normal;">Любознательный студент</span>. Профессор, а какая темя лекции?<br><br><span style="font-family: monospace; font-style: normal;" >Профессор</span>. Тема лекции: ленивые вычисления, Это когда...[и понеслась теория на полутора часа]<br></em><br><br><p><a class="btn" href="/articles/13.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/highload.html">большие нагрузки</a></li><li class="active"><a href="/articles/scaling.html">масштабирование</a></li><li class="active"><a href="/articles/web.html">WEB</a></li><li class="active"><a href="/articles/caching.html">кеширование</a></li>
+	</ul>
+ </div>
+ </div>
+<div class="span6">
+<div> <h2>HighLoad. Три кита. </h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-11-15</span></div>
 <div>
 <p>
- <div><div class="pull-left"><p><img src="/img/articles/13.jpg" align="left">Несомненно популярность социальной игры зависит от удачного геймплея, впечатляющих эскизов наших художников, а также анимационного воплощения флешеров. На фоне всего этого, мы - серверные программисты, остаемся в тени. Но если игра начинает тормозить или падать, то тут вспоминают о нас... Сделаем  <s>Мир</s> проект лучше, быстрее и веселее.</p></div><br><a href="/articles/8.html">Далее...</a></div>
+ <div><div class="pull-left"><img src="/img/articles/17.jpg" align="left"><p>Когда-то давно, еще в эпоху EC-1020(IBM-360) и FORTRAN, отец, учив меня программировать, объяснял: Все программирование держится на трех китах: Оператор присваевания, Оператор сравнения и Оператор перехода. Много воды утекло, канули в Лету СМ и БК, Синклеры и даже PC-x86. Жизнь пришвартовала меня в WEB-разработку. Конечное, многое изменилось с тех пор.   Теперь моя очередь передавать знания сыну ... Так вот, весь  Highload держится на своих трех китах: Предварительные и отложенные вычисления, Распараллеливание задач и Распределение нагрузки.</p></div><br><br><p><a class="btn" href="/articles/12.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/highload.html">большие нагрузки</a></li><li class="active"><a href="/articles/web.html">WEB</a></li>
+	</ul>
+ </div>
+ </div>
+ <hr>
+ </div>
+
+
+
+<div class="row">
+<div class="span6">
+<div> <h2>Шардинг на практике: в системе обмена сообщениями</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-09-04</span></div>
+<div>
+<p>
+ <div><p>Вот и настал п#z@&! Кол-во записей в БД коротких сообщений относительно небольшой СоцСети перевалило за 100 Млн. Неудивительно, ведь соцсеть на то и нужна, чтоб общаться... И стало тормозить не по дням, а по часам...<br><br><p><a class="btn" href="/articles/11.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/highload.html">большие нагрузки</a></li><li class="active"><a href="/articles/scaling.html">масштабирование</a></li><li class="active"><a href="/articles/mysql.html">MySQL</a></li><li class="active"><a href="/articles/php.html">PHP</a></li><li class="active"><a href="/articles/architecture.html">архитектура</a></li><li class="active"><a href="/articles/sharding.html">шардинг</a></li>
+	</ul>
+ </div>
+ </div>
+<div class="span6">
+<div> <h2>Расширения РHP: пять шагов к написанию</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">2012-10-10</span></div>
+<div>
+<p>
+ <div><div style="text-align:right; font: Arial;" >Данный материал был напечатан в журнале "Системный Администратор"  2005г  №11 (36)</div ><br><p>Расширение в PHP – это набор дополнительных функций, не входящих в ядро PHP-engine. Расширения, как и само ядро PHP-engine, написаны на С, что значительно повышает быстродействие системы, а также позволяет осуществлять доступ к внешним библиотекам и создавать более эффективные веб-приложения. Так как же быстро и надежно разработать расширение?<br><p><a class="btn" href="/articles/10.html">Далее...</a></p></div>
+	<ul class="nav nav-pills">
+	<li class="active"><a href="/articles/php.html">PHP</a></li>
+	</ul>
+ </div>
+ </div>
+ <hr>
+ </div>
 
 
 
 
+ <footer>
+  <p   style="margin-bottom: 20px;"></p>
 
+<div class="row">
+<div class="span2">
+&copy; Highload blog 2012
+</div>
+<div class="span4 offset1" >
+<div style="align:left">Хостинг безвозмездно предоставлен: <div>
+<a target="blank" href="http://ovilon.net/"><img src="http://ovilon.net/images/logo.png" align="left"></a>
 
-
-
-
-
-
-
-
+</div>
+<div class="span1 offset4">
 <!--LiveInternet counter--><script type="text/javascript"><!--
 document.write("<a href='http://www.liveinternet.ru/click' "+
 "target=_blank><img src='//counter.yadro.ru/hit?t25.6;r"+
@@ -143,7 +211,16 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 " сегодня' "+
 "border='0' width='88' height='15'><\/a>")
 //--></script><!--/LiveInternet-->
+   		
 </div>
+</div>
+
+
+
+</footer>
+
+</div>
+
 </body>
  <!-- Placed at the end of the document so the pages load faster -->
     

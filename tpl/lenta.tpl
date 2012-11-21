@@ -2,16 +2,18 @@
 <html>
 <header>
 <title>Highload. Высокие нагрузки в WEB, персональный блог Александра Календарёва </title>
-<meta name="generator" content="minicms" >
+<meta name="generator" content="miniCms" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-language" content="ru" />
 <meta name="author" content="Kalendarev Alexandre">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" lang="ru" content="авторский блог Александра Календарева Высокие нагрузки в WEB">
+<meta name="keywords" lang="ru" content="highload, высокие нарузки,{{keywords}}">
 <meta http-equiv="last-Modified" content="{{last_mod}}"> 
 
 
-<link href="/assets/css/bootstrap.css" rel="stylesheet"
+<link href="/assets/css/bootstrap.css" rel="stylesheet"/>
+<link rel="author" href="/humans.txt" />
 <style>
   body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -34,7 +36,7 @@
 </header>
 <body>
 <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner" style="background-color: #999" >
+    <div class="navbar-inner" style="background-color: #999;  " >
 
          <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -42,25 +44,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Высокие нагрузки в  WEB</a>
+          <a title="Высокие нарузки в WEB" class="brand" href="/"><span class="brand" style="color:fe5a5a; font-family: 'Charcoal CY'; font-size: 18 pt; font-style: bold;">HighloadBlog</span></a>
           <div class="nav-collapse">
 
             <ul class="nav">
-              <!-- li class="active"><a href="#">личное</a></li-->
-              <li><a href="/articles/4.html">Об Авторе</a></li>
-              <li><a href="/articles/5.html">Сотрудничество</a></li>
               <li><li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">материал по темам <b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><b>Материал по темам </b><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><a href="/articles/scaling.html">Масштабирование</a></li>
-                      <li><a href="/articles/highload.html">HightLoad</a></li>
+                      <li><a href="/articles/highload.html">HighLoad</a></li>
                       <!-- li><a href="#">MySQL</a></li -->                     
                       <li><a href="/articles/nosql.html">NoSQL</a></li>
-                      <!-- li><a href="#">PHP</a></li -->
+                      <!li><a href="/articles/php.html">PHP</a></li>
                       <li><a href="/articles/web.html">WEB</a></li>
                       <li><a href="/articles/tarantool.html">Tarantool</a></li>
+                      <li><a href="/articles/development.html">Программирование и разработка</a></li>
                     </ul>
               </li>
+			  <li><a href="/articles/15.html"><b>Интересные ссылки</b></a></li>
+              <!-- li class="active"><a href="#">личное</a></li-->
+              <li><a href="/articles/4.html"><b>Об Авторе</b></a></li>
+              <li><a href="/articles/5.html"><b>Сотрудничество</b></a></li>
               
             </ul>
           </div><!--/.nav-collapse -->
@@ -73,19 +77,54 @@
 <span class="twitter"><a href="https://twitter.com/intent/user?screen_name=akalend">мой <em>Twitter</em></a></span></p>
 <div style="text-align:right; font: Arial; font-style:bold" >Если собрались опубликовать материалы данного блога,
     прошу ознакомиться с разделом <a href="/articles/5.html">Сотрудничество</a> </div >
+
 {{IF isindex}}
-<div ><p>Блог посвящен разработке и построению архитектуры высоко нагруженных веб-проектов и о прежде всего ориентирован на архитекторов,  разработчиков, а так же системных  администраторов.  В статьях делюсь реальным опытом проектирования разных систем, от больших социальных сетей и  высоко нагруженных служб знакомств, до работы учета баннеро-крутилок и интернет-магазинов (каталога магазинов).
+<div style="padding-bottom:10px; padding-top:10px;" ><p><i>Блог посвящен разработке и построению архитектуры высоко нагруженных веб-проектов и о прежде всего ориентирован на архитекторов,  разработчиков, а так же системных  администраторов.  В статьях делюсь реальным опытом проектирования разных систем, от больших социальных сетей и  высоко нагруженных служб знакомств, до работы учета баннеро-крутилок и интернет-магазинов (каталога магазинов).</i>
 </div>
 {{END}}
+
 {{BEGIN article}}
 {{IF public}}
-<div > <h2>{{title}}</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">{{date}}</span></div>
+<div class="row">
+<div class="span6">
+<div> <h2>{{title}}</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">{{date}}</span></div>
 <div>
 <p>
  <div>{{text}}</div>
+	<ul class="nav nav-pills">
+	{{BEGIN tags}}<li class="active"><a href="/articles/{{url}}.html">{{name}}</a></li>{{END}}
+	</ul>
+ </div>
+ </div>
+<div class="span6">
+<div> <h2>{{title1}}</h2><span style="padding-left: 8px; font-size: 10pt; font-style: italic">{{date1}}</span></div>
+<div>
+<p>
+ <div>{{text1}}</div>
+	<ul class="nav nav-pills">
+	{{BEGIN tags1}}<li class="active"><a href="/articles/{{url}}.html">{{name}}</a></li>{{END}}
+	</ul>
+ </div>
+ </div>
+ <hr>
+ </div>
 {{END}}
 {{END}}
 
+
+ <footer>
+  <p   style="margin-bottom: 20px;"></p>
+
+<div class="row">
+<div class="span2">
+&copy; Highload blog 2012
+</div>
+<div class="span4 offset1" >
+<div style="align:left">Хостинг безвозмездно предоставлен: <div>
+<a target="blank" href="http://ovilon.net/"><img src="http://ovilon.net/images/logo.png" align="left"></a>
+
+</div>
+<div class="span1 offset4">
 <!--LiveInternet counter--><script type="text/javascript"><!--
 document.write("<a href='http://www.liveinternet.ru/click' "+
 "target=_blank><img src='//counter.yadro.ru/hit?t25.6;r"+
@@ -97,7 +136,16 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 " сегодня' "+
 "border='0' width='88' height='15'><\/a>")
 //--></script><!--/LiveInternet-->
+   		
 </div>
+</div>
+
+
+
+</footer>
+
+</div>
+
 </body>
  <!-- Placed at the end of the document so the pages load faster -->
     

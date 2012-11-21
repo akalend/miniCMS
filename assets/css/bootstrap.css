@@ -419,8 +419,8 @@ a:hover {
 p {
   margin: 0 0 9px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 p small {
@@ -541,7 +541,8 @@ ol {
 }
 
 li {
-  line-height: 18px;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 ul.unstyled,
@@ -3766,6 +3767,11 @@ input[type="submit"].btn.btn-mini {
   float: left;
 }
 
+.twitter {
+	font-size: 120%;
+	font-style: bold;
+	font-weight: bolder;
+}
 .navbar .nav > li > a {
   float: none;
   padding: 9px 10px 11px;

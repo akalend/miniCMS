@@ -96,6 +96,8 @@ if (strpos($res['txt2'],'<cut>')) {
 }
 
 $res['last_mod'] = date('r');//  'Sun, 06 Nov 2005 14:59:42 GMT'
+$res['keywords'] = implode(',',$new );
+
 $result[] = $res;    
 
 

@@ -9,7 +9,8 @@
 <meta name="author" content="Kalendarev Alexandre">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="авторский блог Александра Календарева: Высокие нагрузки в WEB">
-<meta http-equiv="last-Modified" content="Wed, 25 Jul 2012 00:21:16 +0400"> 
+<meta name="keywords" lang="ru" content="highload, высокие нарузки,">
+<meta http-equiv="last-Modified" content="Wed, 21 Nov 2012 01:01:07 +0300"> 
 <link href="/assets/css/bootstrap.css" rel="stylesheet">
 <style>
   body {
@@ -18,6 +19,7 @@
  
 </style>
 <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="author" href="/humans.txt" />
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +34,10 @@
     
   <link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
   <!-- link rel="shortcut icon" type="image/ico" href="images/favicon.gif" /-->	  
-
+<script src="http://userapi.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+<script type="text/javascript">
+  VK.init({apiId: 3249172, onlyWidgets: true});
+</script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
   <!--script src="/assets/js/jquery.js"></script-->
 	
@@ -52,26 +57,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/articles/">Высокие нагрузки в  WEB</a>
+          <a title="Высокие нарузки в WEB" class="brand" href="/"><span class="brand" style="color:fe5a5a; font-family: 'Charcoal CY'; font-size: 18 pt; font-style: bold;">HighloadBlog</span></a>
           <div class="nav-collapse">
 
             <ul class="nav">
-              <!-- li class="active"><a href="#">личное</a></li-->
-              <li><a href="/articles/4.html">Об Авторе</a></li>
-              <li><a href="/articles/5.html">Сотрудничество</a></li>
-
               <li><li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">материал по темам <b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><b> Материал по темам </b><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li><a href="/articles/scaling.html">Масштабирование</a></li>
-                      <li><a href="/articles/highload.html">HightLoad</a></li>
+                      <li><a href="/articles/highload.html">HighLoad</a></li>
                       <!-- li><a href="#">MySQL</a></li -->                     
                       <li><a href="/articles/nosql.html">NoSQL</a></li>
-                      <!-- li><a href="#">PHP</a></li -->
+                      <!li><a href="/articles/php.html">PHP</a></li>
                       <li><a href="/articles/web.html">WEB</a></li>
                       <li><a href="/articles/tarantool.html">Tarantool</a></li>
+                      <li><a href="/articles/development.html">Программирование и разработка</a></li>
                     </ul>
               </li>
+			  <li><a href="/articles/15.html"><b>Интересные ссылки</b></a></li>
+              <!-- li class="active"><a href="#">личное</a></li-->
+              <li><a href="/articles/4.html"><b>Об Авторе</b></a></li>
+              <li><a href="/articles/5.html"><b>Сотрудничество</b></a></li>
+			  
                    
             </ul>
           </div><!--/.nav-collapse -->
@@ -82,7 +89,7 @@
     </div>
 <div class="container">
 <div class="page-header"><h1>Введение и пару слов об этом сервере</h1></div>
-<p><div><em><div class="pull-left"><img 1>
+<p><div><em><div class="pull-left"><img src="/img/articles/1.jpg"><p>
 Открывая свой блог, первой статьей хочу рассказать о сервере, на котором он расположен. Это не совсем про "Высокие нагрузки", но идею "генерации HTML статики" можно удачно использовать в высоконагруженных контентных проектах.
 <p> Все начилось с того, что я услышал о возможности перепрошить свой роутер и установить на него Linux.  Уточнив модель, у меня Asus  WL-500W, я загорелся этой идеей, так как давно собралось много материала, который разбросан как-то по сети. Захотелось его центролизовать в едином блоге. 
 <p>Возможно, со временем мой блог наберет аудиторию и сервер переедет на отдельный хостинг. Но на данный момент меня вполне устраивает "Домашний хостинг".
@@ -175,7 +182,16 @@ http {
 <p>Картинки загружаются по ajax и каждой из них присваевается номер. В том месте, где она должна загрузится, необходимо указать тег<code>img #id </code>
 <p style="margin-top:30px;">
 <em>Copyright (c)2012 byAlexandre Kalendarev.<br> This material may be distributed only subject to the terms and conditions set forth in the Open Publication License, v1.0 or later<br> (the latest version is presently available at <a target="blank" href="http://opencontent.org/openpub/">http://www.opencontent.org/openpub/</a>).</em></p>
-<p>
+<p style="margin-bottom: 20px;">
+
+<hr>
+<div class='pluso pluso-theme-color pluso-round pluso-small'><div class='pluso-more-container'><a class='pluso-more' href=''></a></div><a class='pluso-facebook'></a><a class='pluso-twitter'></a><a class='pluso-vkontakte'></a><a class='pluso-odnoklassniki'></a><a class='pluso-livejournal'></a><a class='pluso-moimir'></a><a class='pluso-liveinternet'></a><a class='pluso-blogger'></a><a class='pluso-google'></a></div>
+<script type='text/javascript'>if(!window.pluso){pluso={version:'0.9.1',url:'http://share.pluso.ru/'};h=document.getElementsByTagName('head')[0];l=document.createElement('link');l.href=pluso.url+'pluso.css';l.type='text/css';l.rel='stylesheet';s=document.createElement('script');s.src=pluso.url+'pluso.js';s.charset='UTF-8';h.appendChild(l);h.appendChild(s)}</script>
+<!-- Put this div tag to the place, where the Comments block will be -->
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"});
+</script>
 
 
 <!--LiveInternet counter--><script type="text/javascript"><!--

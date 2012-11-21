@@ -4,7 +4,8 @@
 <meta content="minicms-generator" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="author" content="Kalendarev Alexandre">
-
+<link rel="author" href="/humans.txt" />
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
 <body>
     
     <a href="insert.php"><input type="button" value="Создать новый" ></a>  
